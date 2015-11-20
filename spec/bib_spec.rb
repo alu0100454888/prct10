@@ -52,3 +52,61 @@ end
 #---------------------------------------------------------------------
 	
 
+describe Bib::Lista do
+	before :each do
+
+		@lista=Bib::Lista.new()
+
+	        	@lista.push_ini(@Node1)
+			@lista.push_ini(@Node1)
+			@lista.push_ini(@Node3)
+			@lista.push_ini(@Node4)
+			@lista.push_ini(@Node5)
+	end
+
+context "Biblio" do
+
+	context " Node  " do
+
+		it "#Debe existir un Nodo de la lista con sus datos y su siguiente" do
+			expect(@lista.cabeza != nil)
+		end
+	end 
+	
+	context "List" do 
+
+	 	it "Se extrae el primer elemento de la lista" do
+			expect(@lista).to respond_to :pop_ini	
+		end
+
+
+		it "Se puede insertar un elemento" do
+			@lista.push_ini(@Node1)
+	 		expect(@lista.cabeza).to eq(@Node1) 		  
+	      	end
+
+
+		it "Se pueden insertar varios elementos" do
+			@lista.push_ini(@Node1)
+                  	@lista.push_ini(@Node2)
+                  	expect(@lista.cabeza).to eq(@Node2)
+	        end
+
+	      
+		it "Debe existir una Lista con su cabeza" do
+			expect(@lista.cabeza == nil)
+	      	end
+
+	end
+
+
+
+
+
+end	
+
+end
+
+
+	
+
