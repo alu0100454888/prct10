@@ -139,6 +139,28 @@ end
 
 #*************************************************
 #*************************************************
+	
+#Prueba para periodicos
+
+describe Bib::Periodico do
+
+	before :each do
+		@Per1 = Bib::Periodico.new(['David Chelimsky', 'Dave Astels', 'Bryan Helmkamp', 'Dan North', 'Zach Dennis', 'Aslak Hellesoy'], 'The RSpecBook', 'Behaviour Driven Development with RSpec', 'Pragmatic
+Bookshelf', '1','(December 25, 2010)', ['ISBN-10: 1934356379.' ,'ISBN-13: 978-1934356371'])
+	
+
+		@Node1 = Bib::Node.new(@Per1, nil)	
+	end
+
+		it "Existe uno nodo de la clase Periodico" do
+			expect(@Per1.class) == Bib::Periodico
+		end
+
+		it "Comprobamos que existe un autor" do
+			expect(@Per1.numEdicion) == 1
+		end
+end
+
 
 
 
