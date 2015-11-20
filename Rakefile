@@ -1,6 +1,4 @@
-# Add your own tasks in files placed in lib/tasks ending in .rake,
-# for example lib/tasks/capistrano.rake, and they will automatically be available to Rake.
-
-require File.expand_path('../config/application', __FILE__)
-
-Rails.application.load_tasks
+rake build # Build exam-0.0.1.gem into the pkg directory
+rake install # Build and install exam-0.0.1.gem into system gems
+rake release # Create tag v0.0.1 and build and push exam-0.0.1.gem to Rubygems
+rake spec # Run RSpec code examples
