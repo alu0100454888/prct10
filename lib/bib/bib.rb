@@ -148,6 +148,56 @@ class Lista
 	
 end
 
+#Creada jerarquia de clases para representar libros y publicaciones periodicas
 
+
+class Libro < Bib
+
+	def initialize(a,b,c,d,e,f,g)
+		super(a,b,c,d,e,f,g)
+	end
+end
+
+
+
+class Periodico < Bib
+
+	def initialize(a,b,c,d,e,f,g)
+		super(a,b,c,d,e,f,g)
+	end
+end
+
+
+
+class ArticuloPeriodico < Periodico
+
+	def initialize(a,b,c,d,e,f,g)
+		super(a,b,c,d,e,f,g)
+	end
+end
+
+
+class ArticuloRevista < Periodico
+
+	def initialize(a,b,c,d,e,f,g)
+		super(a,b,c,d,e,f,g)
+	end
+end
+
+
+
+class DocumentoElectronico < Periodico
+
+	def initialize(a,b,c,d,e,f,g)
+		super(a,b,c,d,e,f,g)
+	end
+end
+
+
+
+
+puts "ALL OK!!"
+
+end
 
 

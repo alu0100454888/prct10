@@ -50,6 +50,8 @@ Bookshelf', '1','(December 25, 2010)', ['ISBN-10: 1934356379.' ,'ISBN-13: 978-19
 	end
 end
 #---------------------------------------------------------------------
+
+
 	
 
 describe Bib::Lista do
@@ -99,6 +101,44 @@ context "Biblio" do
 
 	end
 
+
+
+
+#**************************************************************
+#**************************************************************
+
+#Pruebas para Libro
+
+describe Bib::Libro do
+	before :each do
+		@Lib1 = Bib::Libro.new(["Dave Thomas", "Andy Hunt", "Chad Fowler"],"Programming Ruby 1.9 & 2.0: The Pragmatic Programmers' Guide","The Facets of Ruby","Pragmatic Bookshelf",4,"(July 7,2013)",["ISBN-13: 978-1937785499", "ISBN-10: 1937785491"])
+	
+
+		@Node1 = Bib::Node.new(@Lib1, nil)	
+	end
+
+		it "Existe uno nodo de la clase Libro" do
+			expect(@Lib1.class) == Bib::Libro
+		end
+
+
+		it "Comprobamos que existe una editorial" do
+			expect(@Lib1.editorial) == "Pragmatic Bookshelf"
+		end
+
+		it "Comprobamos que existe numEdicion" do
+			expect(@Lib1.numEdicion) == 4
+		end
+
+
+		it "Comprobamos que existe numISBN" do
+			expect(@Lib1.numISBN) == ["ISBN-13: 978-1937785499", "ISBN-10: 1937785491"]
+		end	
+end
+
+
+#*************************************************
+#*************************************************
 
 
 
