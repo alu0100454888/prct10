@@ -175,11 +175,11 @@ Bookshelf', '1','(December 25, 2010)', ['ISBN-10: 1934356379.' ,'ISBN-13: 978-19
 		@Node1 = Bib::Node.new(@Art1, nil)	
 	end
 
-		it "Existe uno nodo de la clase Periodico" do
+		it "Existe uno nodo de la clase ArticuloPeriodico" do
 			expect(@Art1.class) == Bib::ArticuloPeriodico
 		end
 
-		it "Comprobamos que existe un autor" do
+		it "Comprobamos el numero de edicion" do
 			expect(@Art1.numEdicion) == 1
 		end
 end
