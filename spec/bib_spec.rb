@@ -176,7 +176,7 @@ Bookshelf', '1','(December 25, 2010)', ['ISBN-10: 1934356379.' ,'ISBN-13: 978-19
 	end
 
 		it "Existe uno nodo de la clase Periodico" do
-			expect(@Art1.class) == Bib::Periodico
+			expect(@Art1.class) == Bib::ArticuloPeriodico
 		end
 
 		it "Comprobamos que existe un autor" do
