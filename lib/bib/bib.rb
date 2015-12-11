@@ -4,8 +4,9 @@ module Bib
 
 
 
-  	class Bib
+  	class Referencia
 
+	include Comparable	# ahora debemos definir el metodo <=>
 			attr_accessor :autores, :titulo, :serie, :editorial, :numEdicion, :fecha, :numISBN
 
 
@@ -56,9 +57,21 @@ module Bib
 
 		end
 
-
-
-	end
+		#Definimos el metodo por incluir el modulo Comparable
+		#Devuelve true o false, podemos usar [].sort
+		def <=>(other)
+      			return nil unless other.is_a? Reference
+      			if autores == other.autores then
+      				if date == other.fecha
+      					titulo <=> other.titulo
+      				else 
+      					fecha <=> other.fecha
+      				end
+      				else
+      					autores<=> other.autores
+      				end
+			end
+		end
 
 #Estructura del nodo compuesta por la informacion, un puntero a siguiente y un puntero a anterior
 Node = Struct.new(:value, :next, :anterior)
@@ -68,6 +81,8 @@ Node = Struct.new(:value, :next, :anterior)
 #Clase Lista de nodos	
 class Lista 
 
+	include Enumerable
+
 	attr_accessor :cabeza, :tail
 
 	#constructor 
@@ -76,9 +91,21 @@ class Lista
 		@tail = nil
 	end
 
-	def valueGet()
-		return @cabeza.value
+
+
+	#--------------------------------	
+	def each 
+
+		temp = @cabeza
+		while (temp != @tail) do
+			yield temp.value
+			temp = temp.next
+		end
 	end
+	#----------------------------------
+
+
+	
 
 
 
@@ -95,6 +122,7 @@ class Lista
 			@cabeza = @cabeza.next
 			@cabeza.anterior = nil
 			aux.value
+
 		end		
 	end
 
@@ -148,10 +176,15 @@ class Lista
 	
 end
 
+
+	def valueGet()
+		return @cabeza.value
+	end
+
 #Creada jerarquia de clases para representar libros y publicaciones periodicas
 
 
-class Libro < Bib
+class Libro < Referencia
 
 	def initialize(a,b,c,d,e,f,g)
 		super(a,b,c,d,e,f,g)
@@ -160,7 +193,7 @@ end
 
 
 
-class Periodico < Bib
+class Periodico < Referencia
 
 	def initialize(a,b,c,d,e,f,g)
 		super(a,b,c,d,e,f,g)
@@ -194,9 +227,25 @@ class DocumentoElectronico < Periodico
 end
 
 
+#******************************************************************
+
+
+	
+
+
+
 
 
 puts "ALL OK!!"
+
+
+#*******************************************************************
+
+
+
+
+
+#******************************************************************
 
 end
 
