@@ -229,7 +229,75 @@ end
 
 #******************************************************************
 
+class Apa 
 
+
+	def initialize()
+		@Lista = Lista.new
+	end
+
+
+
+	def insertarReferencia(referencia)
+		@Lista.push_ini(referencia)
+
+	end 
+
+	def pop_fin()
+		if (@cabeza == @tail)
+			@cabeza = nil
+			@tail = nil
+		else
+			aux = @tail
+	    		@tail = @tail.anterior
+	    		@tail.next = nil
+	    		aux.anterior = nil
+	    		aux.value   
+		end
+	end
+
+
+
+	def autor_APA(autor)
+		name_parts = autor.split - [" "]
+      		first_name, last_name = name_parts[0], name_parts[-1]
+      		last_name + ", " + first_name
+    	end
+
+
+
+	def print_autor
+      		count = 0
+      		lista = ""
+      		autores.each do |autor|
+        	count += 1
+        	lista += autor_rev(autor)
+        	lista += " & " if count != autores.size
+     	 end
+      		lista
+    	end
+
+
+
+ 	def print_isbn
+      		lista = ""
+      		num_isbns.each do |isbn|
+        	count = 0
+        	lista += "ISBN-" + isbn.delete('^0-9').size.to_s + ": " + isbn
+        	lista += "\n" if count != num_isbns.size
+      	end
+      		lista
+    	end
+
+
+	def to_s
+      "#{print_autor}\n#{titulo}\n#{serie}\n#{editorial}; #{num_edicion} #{fecha_publicacion}\n#{print_isbn}"
+    end
+
+	
+	
+
+end
 	
 
 
