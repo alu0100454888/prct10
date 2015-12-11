@@ -211,6 +211,8 @@ describe Bib::Apa do
 
 
 
+
+
 	it "Se muestra primero el Apellido y despues el nombre" do
 
 		@apa.insertarReferencia(@Libro1)
@@ -221,7 +223,7 @@ describe Bib::Apa do
 	
 
 
-	it "" do
+	it "Expectativa titulo normalizado" do
          expect(@Libro1.titulo == "Programming Ruby 1.9 & 2.0: The Pragmatic Programmers' Guide").to eq(true)
       end
 

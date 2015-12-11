@@ -199,7 +199,7 @@ describe Bib::Apa do
 		@Libro2 = Bib::Libro.new(["Dave  Thomas", "Andy Hunt", "Chad Fowler"],"Programming Ruby 1.9 & 2.0: The Pragmatic Programmers' Guide","The Facets of Ruby","Pragmatic Bookshelf",4,"(July 7,2012)",["ISBN-13: 978-1937785499", "ISBN-10: 1937785491"])
 
 
-		@Libro3 = Libros.new(["Mario Thomas"],"Las mil noches y una noche","2009","Alfaguara","4","España")
+		
 	end
 
 	
@@ -208,6 +208,8 @@ describe Bib::Apa do
 	it "Existe APA" do
 		expect(@apa).to be_kind_of(Bib::Apa)
 	end
+
+
 
 
 
